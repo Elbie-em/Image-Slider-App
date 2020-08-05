@@ -1,5 +1,56 @@
 .slider {
   width: 800px;
   height: 400px;
-  background-color: blueviolet;
+  padding: 30px;
+  background: linear-gradient(90deg, rgba(94,93,106,1) 0%, rgba(16,16,23,1) 33%, rgba(35,44,46,1) 88%);
+  overflow: hidden;
+}
+
+.slide {
+  width: 600px;
+  height: 330px;
+}
+
+.move-front {
+  position:relative;
+  animation-name: slick-front;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.move-back {
+  position:relative;
+  animation-name: slick-back;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slick-front {
+  0%{
+    right: -200px;
+  }
+  50%,65%{
+    right: -900px;
+  }
+  70% {
+    left: -700px;
+  }
+  80%,100%{
+    left: 0px;
+  }
+}
+
+@keyframes slick-back {
+  0%{
+    left: -200px;
+  }
+  50%,65%{
+    left: -900px;
+  }
+  70% {
+    right: -670px;
+  }
+  80%,100%{
+    right: 0px;
+  }
 }
