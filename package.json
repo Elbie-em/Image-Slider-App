@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Elbie-em/Image-Slider-App/issues"
   },
-  "homepage": "https://github.com/Elbie-em/Image-Slider-App#readme"
+  "homepage": "https://github.com/Elbie-em/Image-Slider-App#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
 }
