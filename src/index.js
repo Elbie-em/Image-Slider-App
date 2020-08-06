@@ -11,36 +11,47 @@ let imgs = ["https://cdn.hipwallpaper.com/i/95/94/d2Jnk5.jpg",
   "https://wallpapercave.com/wp/wp5952036.jpg"
 ];
 
-let slide = document.getElementById('slideObject');
+let slide = Doman.getItem('slideObject');
 let index = 0;
-let img = document.createElement('img');
+
+let img = Doman.createItem('img');
 img.className = 'w-100 h-100'
 img.src = imgs[0];
-slide.appendChild(img);
+Doman.addItem(slide,img);
 
-const prevBtn  = document.getElementById('prevBtn');
-
-prevBtn.onclick = () => {
+const previous = () => {
  slide.innerHTML = '';
  index--;
  if (index < 0 ){
    index = 0
+   img.className = 'w-100 h-100';
+ }else if(index >= 0){
+  img.className = 'w-100 h-100 move-back'
+  setTimeout(function(){ img.src = imgs[index]; }, 500);
  }
- 
- 
- 
- img.className = 'w-100 h-100 move-back'
- setTimeout(function(){ img.src = imgs[index]; }, 500);
- slide.appendChild(img);
+ Doman.addItem(slide,img);
 }
 
-const nextBtn = document.getElementById('nextBtn');
-nextBtn.onclick = () => {
+const next = () => {
   index++;
   if(index > imgs.length - 1 ){
     index = imgs.length - 1
+    img.className = 'w-100 h-100';
+  }else if(index <= imgs.length - 1){
+    img.className = 'w-100 h-100 move-front'
+    setTimeout(function(){ img.src = imgs[index]; }, 500);
   }
-  img.className = 'w-100 h-100 move-front'
-  setTimeout(function(){ img.src = imgs[index]; }, 500);
-  slide.appendChild(img);
- }
+  Doman.addItem(slide,img);
+}
+
+const prevBtn  = Doman.getItem('prevBtn');
+prevBtn.onclick = () => {
+ previous();
+}
+
+const nextBtn = Doman.getItem('nextBtn');
+nextBtn.onclick = () => {
+  next();
+}
+
+setInterval(function(){ next(); }, 5000);
