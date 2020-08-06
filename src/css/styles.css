@@ -1,3 +1,9 @@
+.bg-back {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxto7iJWS4dJ4q1h5Dwjbpf8YNul7Hg0bNPQ&usqp=CAU");
+  height: 100%;
+  background-position: center;
+}
+
 .slider {
   width: 800px;
   height: 400px;
